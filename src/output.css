@@ -19,11 +19,15 @@
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
+    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --leading-normal: 1.5;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --blur-2xl: 40px;
@@ -183,6 +187,9 @@
   .col-span-4 {
     grid-column: span 4 / span 4;
   }
+  .col-span-5 {
+    grid-column: span 5 / span 5;
+  }
   .col-span-6 {
     grid-column: span 6 / span 6;
   }
@@ -192,56 +199,26 @@
   .col-span-8 {
     grid-column: span 8 / span 8;
   }
-  .col-span-12 {
-    grid-column: span 12 / span 12;
-  }
-  .col-start-2 {
-    grid-column-start: 2;
-  }
   .col-start-3 {
     grid-column-start: 3;
-  }
-  .col-end-1 {
-    grid-column-end: 1;
   }
   .col-end-9 {
     grid-column-end: 9;
   }
-  .col-end-10 {
-    grid-column-end: 10;
-  }
-  .col-end-11 {
-    grid-column-end: 11;
-  }
-  .row-span-7 {
-    grid-row: span 7 / span 7;
-  }
-  .container {
-    width: 100%;
-    @media (width >= 40rem) {
-      max-width: 40rem;
-    }
-    @media (width >= 48rem) {
-      max-width: 48rem;
-    }
-    @media (width >= 64rem) {
-      max-width: 64rem;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
-    }
-  }
   .mx-auto {
     margin-inline: auto;
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
   .mb-25 {
     margin-bottom: calc(var(--spacing) * 25);
+  }
+  .mb-\[30px\] {
+    margin-bottom: 30px;
   }
   .mb-\[50px\] {
     margin-bottom: 50px;
@@ -264,56 +241,26 @@
   .table {
     display: table;
   }
-  .w-\[70\] {
-    width: 70;
-  }
-  .w-\[75\%\] {
-    width: 75%;
-  }
-  .w-\[730\[\]\] {
-    width: 730[];
-  }
-  .w-\[730\] {
-    width: 730;
+  .h-auto {
+    height: auto;
   }
   .w-\[730px\] {
     width: 730px;
   }
+  .w-full {
+    width: 100%;
+  }
   .max-w-7xl {
     max-width: var(--container-7xl);
   }
-  .max-w-1280 {
-    max-width: calc(var(--spacing) * 1280);
-  }
-  .max-w-\[7xl\] {
-    max-width: 7xl;
-  }
-  .max-w-\[1280\] {
-    max-width: 1280;
-  }
-  .max-w-\[1280px\] {
-    max-width: 1280px;
+  .max-w-full {
+    max-width: 100%;
   }
   .border-collapse {
     border-collapse: collapse;
   }
   .resize {
     resize: both;
-  }
-  .grid-flow-col {
-    grid-auto-flow: column;
-  }
-  .grid-flow-row {
-    grid-auto-flow: row;
-  }
-  .grid-cols-7 {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-  }
-  .grid-cols-9 {
-    grid-template-columns: repeat(9, minmax(0, 1fr));
-  }
-  .grid-cols-10 {
-    grid-template-columns: repeat(10, minmax(0, 1fr));
   }
   .grid-cols-11 {
     grid-template-columns: repeat(11, minmax(0, 1fr));
@@ -327,17 +274,14 @@
   .flex-row {
     flex-direction: row;
   }
-  .place-items-center {
-    place-items: center;
-  }
   .items-center {
     align-items: center;
   }
   .justify-between {
     justify-content: space-between;
   }
-  .justify-center {
-    justify-content: center;
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
@@ -347,6 +291,9 @@
   }
   .gap-20 {
     gap: calc(var(--spacing) * 20);
+  }
+  .gap-\[60px\] {
+    gap: 60px;
   }
   .gap-x-5 {
     column-gap: calc(var(--spacing) * 5);
@@ -358,9 +305,6 @@
       margin-inline-end: calc(calc(var(--spacing) * 10) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
-  .rounded {
-    border-radius: 0.25rem;
-  }
   .rounded-\[15px\] {
     border-radius: 15px;
   }
@@ -369,10 +313,6 @@
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
-  }
-  .rounded-b-xl {
-    border-bottom-right-radius: var(--radius-xl);
-    border-bottom-left-radius: var(--radius-xl);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -421,20 +361,23 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
-  .pt-25 {
-    padding-top: calc(var(--spacing) * 25);
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
   }
-  .pt-\[1\] {
-    padding-top: 1;
+  .py-\[100px\] {
+    padding-block: 100px;
+  }
+  .pe-1 {
+    padding-inline-end: calc(var(--spacing) * 1);
+  }
+  .pe-13 {
+    padding-inline-end: calc(var(--spacing) * 13);
   }
   .pt-\[100px\] {
     padding-top: 100px;
   }
-  .pb-1 {
-    padding-bottom: calc(var(--spacing) * 1);
-  }
-  .pb-20 {
-    padding-bottom: calc(var(--spacing) * 20);
+  .pb-8 {
+    padding-bottom: calc(var(--spacing) * 8);
   }
   .pb-\[50px\] {
     padding-bottom: 50px;
@@ -445,8 +388,9 @@
   .font-\[Poppins\] {
     font-family: Poppins;
   }
-  .font-\[poppins\] {
-    font-family: poppins;
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
   .text-5xl {
     font-size: var(--text-5xl);
@@ -460,10 +404,6 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
-  }
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
@@ -471,9 +411,13 @@
   .text-\[64px\] {
     font-size: 64px;
   }
-  .leading-6 {
-    --tw-leading: calc(var(--spacing) * 6);
-    line-height: calc(var(--spacing) * 6);
+  .leading-12 {
+    --tw-leading: calc(var(--spacing) * 12);
+    line-height: calc(var(--spacing) * 12);
+  }
+  .leading-\[21px\] {
+    --tw-leading: 21px;
+    line-height: 21px;
   }
   .leading-\[23px\] {
     --tw-leading: 23px;
@@ -491,6 +435,10 @@
     --tw-leading: 78px;
     line-height: 78px;
   }
+  .leading-normal {
+    --tw-leading: var(--leading-normal);
+    line-height: var(--leading-normal);
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -499,12 +447,19 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
   .text-\[\#000000B2\] {
     color: #000000B2;
+  }
+  .text-\[\#000000\] {
+    color: #000000;
   }
   .text-\[\#FFFFFFB2\] {
     color: #FFFFFFB2;
